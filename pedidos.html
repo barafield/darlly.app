@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darlly - Sistema de Pedidos</title>
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f0f10">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="pedidos.css">
+</head>
+
+<body>
+
+    <!-- ================= TOPO ================= -->
+    <header class="topo">
+
+        <a href="dash.html" class="btn-voltar">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        
+        <div class="logo">
+            <h1>Darlly</h1>
+        </div>
+
+        <!-- CLIENTE -->
+        <div class="identificacao-cliente">
+            <div class="input-estilizado">
+                <i class="fas fa-user"></i>
+                <input type="text" id="nomeCliente" placeholder="Nome do Cliente" autocomplete="off">
+            </div>
+
+            <div class="input-estilizado">
+                <i class="fas fa-id-card"></i>
+                <input type="text" id="documentoCliente" placeholder="CPF/CNPJ (Opcional)" autocomplete="off">
+            </div>
+        </div>
+
+        <!-- BUSCA -->
+        <div class="busca-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="buscaProduto" placeholder="Procurar produto na lista...">
+        </div>
+
+    </header>
+
+    <!-- ================= PRODUTOS ================= -->
+    <main class="container">
+        <div id="listaProdutos" class="lista-produtos">
+            <div class="loading-aviso">Carregando produtos da planilha...</div>
+        </div>
+    </main>
+
+    <!-- ================= BOTÃO CARRINHO ================= -->
+    <div class="carrinho-flutuante" id="btnCarrinho">
+        <i class="fas fa-shopping-basket"></i>
+        <span id="contadorCarrinho">0</span>
+    </div>
+
+    <!-- ================= MODAL CARRINHO ================= -->
+    <div class="modal-carrinho" id="modalCarrinho">
+
+        <div class="modal-conteudo">
+            
+            <div class="modal-topo">
+                <h2>Meu Pedido</h2>
+
+                <div class="modal-acoes">
+                    <button id="limparCarrinho" class="btn-limpar">
+                        Limpar Tudo
+                    </button>
+
+                    <button id="fecharCarrinho" class="btn-fechar">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="itensCarrinho" class="itens-carrinho"></div>
+
+            <div class="modal-rodape">
+
+                <div class="total-container">
+                    <span>Total do Pedido:</span>
+                    <span class="total-valor">
+                        R$ <span id="totalCarrinho">0,00</span>
+                    </span>
+                </div>
+
+                <button id="finalizarPedido" class="btn-finalizar">
+                    <i class="fab fa-whatsapp"></i>
+                    Enviar Pedido via WhatsApp
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= MODAL QUANTIDADE ================= -->
+    <div class="modal-quantidade" id="modalQtd">
+
+        <div class="modal-qtd-box">
+
+            <h3 id="qtdProdutoNome">Produto</h3>
+            <p id="qtdProdutoTipo">Tipo</p>
+
+            <input 
+                type="number" 
+                id="inputQuantidade" 
+                placeholder="Quantidade" 
+                step="0.1"
+            >
+
+            <div class="qtd-acoes">
+
+                <button id="cancelarQtd" class="btn-cancelar">
+                    Cancelar
+                </button>
+
+                <button id="confirmarQtd" class="btn-confirmar">
+                    Adicionar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= JS ================= -->
+    <script src="pedidos.js"></script>
+
+</body>
+</html>
